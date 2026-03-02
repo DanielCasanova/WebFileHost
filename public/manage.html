@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="box">
+<div class="box">
+<h2>Manage Files</h2>
+<button onclick="logout()">Logout</button>
+
+<hr>
+
+<h3>Upload File</h3>
+<input type="file" id="file">
+<button onclick="upload()">Upload</button>
+
+<hr>
+
+<h3>Your Files</h3>
+<div id="fileList"></div>
+
+<hr>
+
+<h3>Create Group</h3>
+<input id="groupName" placeholder="Codename">
+<input id="groupPass" type="password" placeholder="Password">
+<button onclick="createGroup()">Create</button>
+
+<hr>
+
+<h3>Your Groups</h3>
+<div id="groupList"></div>
+</div>
+</div>
+
+<script src="app.js"></script>
+<script>
+loadData();
+</script>
+</body>
+</html>

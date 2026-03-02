@@ -1,0 +1,46 @@
+{
+  "users": {},
+  "files": [
+    {
+      "id": "uuid",
+      "owner": "username",
+      "originalName": "file.pdf",
+      "storedName": "uuid.pdf",
+      "groups": [
+        "group-id-1"
+      ]
+    },
+    {
+      "id": "f8210f2d-7f7a-437d-a744-527a5f07bb85",
+      "owner": "admin",
+      "originalName": "1400643.png",
+      "storedName": "02c818d1-94ef-43d7-a4d2-46039e4eef71.png",
+      "groups": []
+    },
+    {
+      "id": "86d813a4-009c-4121-b36d-52d82e7ab8e8",
+      "owner": "admin",
+      "originalName": "1402167.png",
+      "storedName": "73cd895d-40a2-4f63-a667-8def7759af2e.png",
+      "groups": []
+    }
+  ],
+  "groups": [
+    {
+      "id": "uuid",
+      "owner": "username",
+      "codename": "bluefox",
+      "passwordHash": "...bcrypt...",
+      "files": [
+        "file-id-1"
+      ]
+    },
+    {
+      "id": "a714eee7-d0de-4029-bd35-fbbbf3a856b4",
+      "owner": "admin",
+      "codename": "test",
+      "passwordHash": "$2b$10$kruKVW1orIFdkfX7v5CdHunU1NTgB0lmLv55H/7RzfyOO2vv3yyre",
+      "files": []
+    }
+  ]
+}
