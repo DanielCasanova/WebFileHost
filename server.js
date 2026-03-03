@@ -94,7 +94,7 @@ const host = config.IS_PROD ? '127.0.0.1' : '0.0.0.0';
 
 app.listen(config.PORT, host, () => {
   const displayHost = host === '0.0.0.0' ? 'localhost' : host;
-  console.log(`[${config.NODE_ENV}] fileshare -> http://${displayHost}:${config.PORT}`);
+  console.log(`[${config.NODE_ENV}] WebFileHost -> http://${displayHost}:${config.PORT}`);
   if (!config.IS_PROD) {
     console.log(`[dev] uploads -> ${config.UPLOADS_DIR}`);
     console.log(`[dev] data    -> ${config.DATA_DIR}`);

@@ -1,5 +1,5 @@
 {
-  "name": "fileshare",
+  "name": "WebFileHost",
   "version": "1.0.0",
   "description": "Minimal file sharing app",
   "main": "server.js",

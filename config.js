@@ -16,15 +16,15 @@ module.exports = {
 
   // ── Paths — hardcoded per environment ─────────────────────────────────────
   USERS_FILE:  isProd
-    ? '/etc/fileshare/users.json'
+    ? '/etc/WebFileHost/users.json'
     : path.join(__dirname, 'test', 'users.json'),
 
   UPLOADS_DIR: isProd
-    ? '/var/fileshare/uploads'
+    ? '/var/WebFileHost/uploads'
     : path.join(__dirname, 'uploads'),
 
   DATA_DIR: isProd
-    ? '/var/fileshare/data'
+    ? '/var/WebFileHost/data'
     : path.join(__dirname, 'data'),
 
   get FILES_DB()  { return path.join(this.DATA_DIR, 'files.json');  },
