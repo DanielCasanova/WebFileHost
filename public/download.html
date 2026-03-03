@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download — FileShare</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="page-center">
+    <div class="card" id="accessCard">
+      <h1>Access Files</h1>
+      <p class="subtitle">Enter the codename and password you received</p>
+
+      <div id="alert" class="alert alert-error"></div>
+
+      <div class="field">
+        <label for="codename">Codename</label>
+        <input type="text" id="codename" autofocus autocomplete="off" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="off">
+      </div>
+
+      <button class="btn btn-primary btn-full" id="accessBtn">Access</button>
+
+      <button class="btn-link" id="gotoLoginBtn">← Back to sign in</button>
+    </div>
+
+    <div class="card" id="filesCard" style="display:none; max-width:560px;">
+      <h1 id="groupTitle">Files</h1>
+      <p class="subtitle" id="groupSubtitle"></p>
+
+      <div id="filesAlert" class="alert alert-error"></div>
+
+      <ul class="file-list" id="fileList"></ul>
+
+      <button class="btn btn-ghost btn-full mt-2" id="resetBtn">
+        ← Access a different share
+      </button>
+    </div>
+  </div>
+  <script src="/js/download.js"></script>
+</body>
+</html>

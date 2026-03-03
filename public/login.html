@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — FileShare</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="page-center">
+    <div class="card">
+      <h1>FileShare</h1>
+      <p class="subtitle">Sign in to manage your files</p>
+
+      <div id="alert" class="alert alert-error"></div>
+
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" autofocus spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password">
+      </div>
+
+      <button class="btn btn-primary btn-full" id="loginBtn">Sign in</button>
+
+      <button class="btn-link" id="gotoDownloadBtn">
+        Access a shared download →
+      </button>
+    </div>
+  </div>
+  <script src="/js/login.js"></script>
+</body>
+</html>
