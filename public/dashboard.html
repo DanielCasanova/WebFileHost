@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — FileShare</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <span class="logo">FileShare</span>
+      <div class="user-info">
+        <span id="topbarUser"></span>
+        <button class="btn btn-ghost" id="logoutBtn" style="padding:0.35rem 0.85rem; font-size:0.8rem;">
+          Sign out
+        </button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <h3>Sections</h3>
+        <button class="sidebar-item active" data-panel="files">My Files</button>
+        <button class="sidebar-item" data-panel="groups">Shared Groups</button>
+      </nav>
+
+      <!-- Files panel -->
+      <main class="panel" id="panel-files">
+        <div class="panel-header">
+          <h2>My Files</h2>
+          <button class="btn btn-primary" id="uploadTrigger">Upload files</button>
+        </div>
+
+        <div id="uploadArea" style="display:none; margin-bottom:1.5rem;">
+          <div class="drop-zone" id="dropZone">
+            Drop files here or <strong>click to browse</strong>
+            <input type="file" id="fileInput" multiple style="display:none">
+          </div>
+          <div class="upload-progress" id="uploadProgress">
+            <div class="text-sm text-muted" id="uploadStatus">Uploading…</div>
+            <div class="progress-bar mt-1"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+        </div>
+
+        <div id="filesAlert" class="alert alert-error"></div>
+        <div id="filesSuccess" class="alert alert-success"></div>
+
+        <div id="filesEmpty" class="empty-state" style="display:none;">No files yet. Upload your first file above.</div>
+        <table class="data-table" id="filesTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Size</th>
+              <th>Uploaded</th>
+              <th>Groups</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="filesBody"></tbody>
+        </table>
+      </main>
+
+      <!-- Groups panel -->
+      <main class="panel" id="panel-groups" style="display:none;">
+        <div class="panel-header">
+          <h2>Shared Groups</h2>
+          <button class="btn btn-primary" id="newGroupBtn">New group</button>
+        </div>
+
+        <div id="groupsAlert" class="alert alert-error"></div>
+        <div id="groupsSuccess" class="alert alert-success"></div>
+
+        <div id="groupsEmpty" class="empty-state" style="display:none;">No groups yet. Create one to start sharing.</div>
+        <table class="data-table" id="groupsTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>Codename</th>
+              <th>Files</th>
+              <th>Downloads</th>
+              <th>Expires</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="groupsBody"></tbody>
+        </table>
+      </main>
+    </div>
+  </div>
+
+  <!-- ── Create / Edit Group Modal ───────────────────────────────────────── -->
+  <div class="modal-overlay" id="groupModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">New shared group</h3>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+
+      <div id="modalAlert" class="alert alert-error"></div>
+
+      <div class="field">
+        <label for="gCodename">Codename <span class="text-muted text-sm">(leave blank to auto-generate)</span></label>
+        <input type="text" id="gCodename" spellcheck="false" autocomplete="off"
+               placeholder="e.g. summer-docs">
+      </div>
+      <div class="field">
+        <label for="gPassword">Password</label>
+        <input type="password" id="gPassword" autocomplete="new-password" placeholder="Min. 4 characters">
+      </div>
+
+      <div class="field">
+        <label>Expiry</label>
+        <select id="gExpiryType">
+          <option value="never">Never</option>
+          <option value="date">Specific date</option>
+          <option value="count">Download count</option>
+        </select>
+      </div>
+
+      <div class="field" id="gExpiryDateField" style="display:none;">
+        <label for="gExpiryDate">Expires on</label>
+        <input type="datetime-local" id="gExpiryDate">
+      </div>
+
+      <div class="field" id="gExpiryCountField" style="display:none;">
+        <label for="gDownloadLimit">Max downloads</label>
+        <input type="number" id="gDownloadLimit" min="1" placeholder="e.g. 10">
+      </div>
+
+      <div class="field">
+        <label>Files to include</label>
+        <div class="file-picker" id="filePicker"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="modalCancel">Cancel</button>
+        <button class="btn btn-primary" id="modalSave">Create group</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
