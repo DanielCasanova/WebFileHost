@@ -37,6 +37,10 @@ if (!config.IS_PROD) {
 
 const app = express();
 
+// Trust the first proxy (Apache) — required when behind a reverse proxy
+// so express-rate-limit can correctly identify clients by IP
+app.set('trust proxy', 1);
+
 // ── Security headers ──────────────────────────────────────────────────────────
 app.use(helmet({
   contentSecurityPolicy: {
